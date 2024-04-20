@@ -8,12 +8,12 @@ CREATE OR REPLACE TYPE tp_endereco AS OBJECT(
 	complemento VARCHAR2(50)   
 );
 
-CREATE OR REPLACE TYPE tp_varr_telefone AS OBJECT(
+CREATE OR REPLACE TYPE tp_telefone AS OBJECT(
     ddd VARCHAR(2),
-    num VARCHAR(2)
+    num VARCHAR(11)
 );
 
-CREATE OR REPLACE TYPE tp_va_telefones AS VARRAY(3) OF tp_varr_telefone;
+CREATE OR REPLACE TYPE tp_va_telefones AS VARRAY(3) OF tp_telefone;
 
 --Entidades--
 
@@ -36,3 +36,26 @@ CREATE OR REPLACE TYPE tp_passageiros_menorid UNDER tp_passageiro(
     telefone tp_va_telefones,
     email VARCHAR2 (50)
 );
+-- Estadia --
+CREATE TYPE tp_estadia AS OBJECT(
+    cod_estadia number,
+    Data_checkin date,
+    data_checkout date,
+    valor_estadia number(38,02)
+);
+
+CREATE TABLE tb_estadia OF tp_estadia (
+    CONSTRAINT pk_estadia PRIMARY KEY (cod_estadia)
+);
+
+-- Hotel --
+CREATE TYPE tp_hotel AS OBJECT(
+    pk_cod_hotel number,
+    nome VARCHAR(20),
+    endereco tp_endereco 
+);
+
+
+
+
+
