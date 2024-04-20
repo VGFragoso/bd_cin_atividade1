@@ -1,13 +1,10 @@
-AUX
-
-
 -- Tipo Aux -- Endereço, Telefone
 
 CREATE OR REPLACE TYPE tp_endereco AS OBJECT(
-    cep VARCHAR2(10),
-    pais VARCHAR2(50),
-    estado VARCHAR2(50),
-    cidade VARCHAR2(50),
+	cep VARCHAR2(10),
+	pais VARCHAR2(50),
+	estado VARCHAR2(50),
+	cidade VARCHAR2(50),
 	complemento VARCHAR2(50)   
 );
 
